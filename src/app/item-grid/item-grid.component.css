@@ -1,0 +1,16 @@
+:host {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+p {
+    color: white;
+}
+
+div {
+    background-color: #1e1e1e;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+}
