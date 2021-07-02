@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ItemGridComponent } from './item-grid/item-grid.component';
+import { RendererComponent } from './renderer/renderer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
-    ItemGridComponent
+    ItemGridComponent,
+    RendererComponent
   ],
   imports: [
     BrowserModule,

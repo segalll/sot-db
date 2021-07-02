@@ -1,0 +1,5 @@
+Diffuse=ipg_eas_hook_01_ash_di
+Normal=ipg_eas_hook_01_no
+Other[0]=ipg_eas_hook_01_ash_mr
+Other[1]=default_di
+Other[2]=default_mr
