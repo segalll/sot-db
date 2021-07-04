@@ -1,6 +1,6 @@
 import { ElementRef, Injectable, NgZone, OnDestroy } from '@angular/core';
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,6 @@ export class RendererService implements OnDestroy {
   private camera!: THREE.PerspectiveCamera;
   private scene!: THREE.Scene;
   private light!: THREE.AmbientLight;
-
-  private cube!: THREE.Mesh;
   
   private frameId: number = -1;
   
@@ -37,26 +35,27 @@ export class RendererService implements OnDestroy {
     this.scene = new THREE.Scene();
 
     this.camera = new THREE.PerspectiveCamera(
-      75, window.innerWidth / window.innerHeight, 0.1, 1000
+      50, window.innerWidth / window.innerHeight, 0.1, 1000
     );
-    this.camera.position.z = 5;
+    this.camera.position.set(350, 200, 50);
+    this.camera.rotation.set(90, 90, -90);
     this.scene.add(this.camera);
 
     this.light = new THREE.AmbientLight(0x404040);
     this.light.position.z = 10;
     this.scene.add(this.light);
 
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({color: 0x00ff00});
-    this.cube = new THREE.Mesh(geometry, material);
-    this.scene.add(this.cube);
+    const directionalLight = new THREE.DirectionalLight(0xffffff);
+    this.scene.add(directionalLight);
 
-    const loader = new GLTFLoader();
+    const loader = new FBXLoader();
 
     loader.load(
-      '../assets/ipg_eas_hook_01_ash__midHook_L.gltf',
-      gltf => {
-        this.scene.add(gltf.scene.children[0]);
+      '../assets/ipg_eas_hook_01_ash__midHook_L.fbx',
+      fbx => {
+        console.log(fbx);
+        this.scene.add(fbx);
+        console.log(this.scene);
       },
       xhr => {
         console.log((xhr.loaded / xhr.total * 100) + '% loaded');
@@ -65,7 +64,51 @@ export class RendererService implements OnDestroy {
         console.log('error loading model');
       }
     );
-    console.log(this.scene);
+
+    loader.load(
+      '../assets/ipg_legice_dress_01__dress.fbx',
+      fbx => {
+        console.log(fbx);
+        this.scene.add(fbx);
+        console.log(this.scene);
+      },
+      xhr => {
+        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+      },
+      error => {
+        console.log('error loading model');
+      }
+    );
+
+    loader.load(
+      '../assets/ipg_legice_dress_01__midArm_L.fbx',
+      fbx => {
+        console.log(fbx);
+        this.scene.add(fbx);
+        console.log(this.scene);
+      },
+      xhr => {
+        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+      },
+      error => {
+        console.log('error loading model');
+      }
+    );
+
+    loader.load(
+      '../assets/ipg_legice_dress_01__midArm_R.fbx',
+      fbx => {
+        console.log(fbx);
+        this.scene.add(fbx);
+        console.log(this.scene);
+      },
+      xhr => {
+        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+      },
+      error => {
+        console.log('error loading model');
+      }
+    );
   }
 
   animate(): void {
@@ -89,8 +132,6 @@ export class RendererService implements OnDestroy {
       this.render();
     });
 
-    this.cube.rotation.x += 0.01;
-    this.cube.rotation.y += 0.01;
     this.renderer.render(this.scene, this.camera);
   }
 
