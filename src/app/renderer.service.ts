@@ -1,6 +1,6 @@
 import { ElementRef, Injectable, NgZone, OnDestroy } from '@angular/core';
 import * as THREE from 'three';
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 @Injectable({
   providedIn: 'root'
@@ -48,58 +48,13 @@ export class RendererService implements OnDestroy {
     const directionalLight = new THREE.DirectionalLight(0xffffff);
     this.scene.add(directionalLight);
 
-    const loader = new FBXLoader();
+    const loader = new GLTFLoader();
 
     loader.load(
-      '../assets/ipg_eas_hook_01_ash__midHook_L.fbx',
-      fbx => {
-        console.log(fbx);
-        this.scene.add(fbx);
-        console.log(this.scene);
-      },
-      xhr => {
-        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-      },
-      error => {
-        console.log('error loading model');
-      }
-    );
-
-    loader.load(
-      '../assets/ipg_legice_dress_01__dress.fbx',
-      fbx => {
-        console.log(fbx);
-        this.scene.add(fbx);
-        console.log(this.scene);
-      },
-      xhr => {
-        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-      },
-      error => {
-        console.log('error loading model');
-      }
-    );
-
-    loader.load(
-      '../assets/ipg_legice_dress_01__midArm_L.fbx',
-      fbx => {
-        console.log(fbx);
-        this.scene.add(fbx);
-        console.log(this.scene);
-      },
-      xhr => {
-        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-      },
-      error => {
-        console.log('error loading model');
-      }
-    );
-
-    loader.load(
-      '../assets/ipg_legice_dress_01__midArm_R.fbx',
-      fbx => {
-        console.log(fbx);
-        this.scene.add(fbx);
+      './assets/Characters/IPG/Wardrobe/Hooks/ipg_eas_hook_01/ipg_eas_hook_01_ash__midHook_L.glb',
+      gltf => {
+        console.log(gltf);
+        this.scene.add(gltf.scene);
         console.log(this.scene);
       },
       xhr => {
