@@ -46,4 +46,4 @@ testem.log
 Thumbs.db
 
 # Assets
-src/assets/*
+sot-assets
