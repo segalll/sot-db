@@ -42,7 +42,6 @@ export class RendererService implements OnDestroy {
     );
     this.camera.position.set(0, 0, 2.5);
     this.camera.rotation.set(0, 0, 0);
-    this.scene.add(this.camera);
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
@@ -52,14 +51,14 @@ export class RendererService implements OnDestroy {
 
     const directLight = new THREE.DirectionalLight(0xffffff);
     directLight.position.set(-5, 5, 5);
-    directLight.lookAt(0, 0, -4);
+    directLight.lookAt(0, 0, 0);
     this.scene.add(directLight);
 
     this.loader = new GLTFLoader();
 
     this.characterGroup = new THREE.Group();
     this.characterGroup.rotation.set(0, -Math.PI / 2, 0);
-    this.characterGroup.position.set(0, -0.75, 0);
+    this.characterGroup.position.set(0, -1, 0);
     this.scene.add(this.characterGroup);
     
     this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Face_Template__skinHead.glb');

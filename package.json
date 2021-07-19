@@ -6,7 +6,8 @@
     "start": "concurrently \"http-server ./sot-assets -p 3000 --cors\" \"ng serve -o\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "server": "http-server ./sot-assets -p 3001 --cors"
   },
   "private": true,
   "dependencies": {
