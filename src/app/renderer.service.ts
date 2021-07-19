@@ -61,28 +61,28 @@ export class RendererService implements OnDestroy {
     this.characterGroup.position.set(0, -1, 0);
     this.scene.add(this.characterGroup);
     
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Face_Template__skinHead.glb');
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinJacketUpperBib.glb');
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinJacketSquareBibTucked.glb');
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinTorso.glb');
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftUpperArm.glb');
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightUpperArm.glb');
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftMidArm.glb');
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightMidArm.glb');
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftLowerArm.glb');
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightLowerArm.glb');
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftHand.glb');
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightHand.glb');
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftMidLeg.glb');
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightMidLeg.glb');
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftLowerLeg.glb');
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightLowerLeg.glb');
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftFoot.glb');
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightFoot.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/_Skin/skin_Face_Template__skinHead.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinJacketUpperBib.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinJacketSquareBibTucked.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinTorso.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftUpperArm.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightUpperArm.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftMidArm.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightMidArm.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftLowerArm.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightLowerArm.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftHand.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightHand.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftMidLeg.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightMidLeg.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftLowerLeg.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightLowerLeg.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftFoot.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightFoot.glb');
     
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/Dresses/ipg_leggho_dress_01/ipg_leggho_dress_01__dress.glb');
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/Dresses/ipg_leggho_dress_01/ipg_leggho_dress_01__shortArm_L.glb');
-    this.load('http://localhost:3000/Characters/IPG/Wardrobe/Dresses/ipg_leggho_dress_01/ipg_leggho_dress_01__shortArm_R.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/Dresses/ipg_leggho_dress_01/ipg_leggho_dress_01__dress.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/Dresses/ipg_leggho_dress_01/ipg_leggho_dress_01__shortArm_L.glb');
+    this.load('http://localhost:3001/Characters/IPG/Wardrobe/Dresses/ipg_leggho_dress_01/ipg_leggho_dress_01__shortArm_R.glb');
   }
 
   load(url: string): void {
