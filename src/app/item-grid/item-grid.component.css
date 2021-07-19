@@ -1,13 +1,16 @@
-:host {
+ul {
     display: grid;
     grid-template-columns: auto auto auto;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 p {
     color: white;
 }
 
-div {
+li {
     background-color: #1e1e1e;
     margin: 20px;
     padding: 10px;

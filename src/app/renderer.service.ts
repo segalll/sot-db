@@ -1,6 +1,7 @@
 import { ElementRef, Injectable, NgZone, OnDestroy } from '@angular/core';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,9 @@ export class RendererService implements OnDestroy {
   private renderer!: THREE.WebGLRenderer;
   private camera!: THREE.PerspectiveCamera;
   private scene!: THREE.Scene;
-  private light!: THREE.AmbientLight;
+  private loader!: GLTFLoader;
+  private characterGroup!: THREE.Group;
+  private controls!: OrbitControls;
   
   private frameId: number = -1;
   
@@ -37,31 +40,63 @@ export class RendererService implements OnDestroy {
     this.camera = new THREE.PerspectiveCamera(
       50, window.innerWidth / window.innerHeight, 0.1, 1000
     );
-    this.camera.position.set(350, 200, 50);
-    this.camera.rotation.set(90, 90, -90);
+    this.camera.position.set(0, 0, 2.5);
+    this.camera.rotation.set(0, 0, 0);
     this.scene.add(this.camera);
 
-    this.light = new THREE.AmbientLight(0x404040);
-    this.light.position.z = 10;
-    this.scene.add(this.light);
+    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff);
-    this.scene.add(directionalLight);
+    const ambientLight = new THREE.AmbientLight(0x404040);
+    ambientLight.position.z = 10;
+    this.scene.add(ambientLight);
 
-    const loader = new GLTFLoader();
+    const directLight = new THREE.DirectionalLight(0xffffff);
+    directLight.position.set(-5, 5, 5);
+    directLight.lookAt(0, 0, -4);
+    this.scene.add(directLight);
 
-    loader.load(
-      './assets/Characters/IPG/Wardrobe/Hooks/ipg_eas_hook_01/ipg_eas_hook_01_ash__midHook_L.glb',
+    this.loader = new GLTFLoader();
+
+    this.characterGroup = new THREE.Group();
+    this.characterGroup.rotation.set(0, -Math.PI / 2, 0);
+    this.characterGroup.position.set(0, -0.75, 0);
+    this.scene.add(this.characterGroup);
+    
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Face_Template__skinHead.glb');
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinJacketUpperBib.glb');
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinJacketSquareBibTucked.glb');
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinTorso.glb');
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftUpperArm.glb');
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightUpperArm.glb');
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftMidArm.glb');
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightMidArm.glb');
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftLowerArm.glb');
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightLowerArm.glb');
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftHand.glb');
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightHand.glb');
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftMidLeg.glb');
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightMidLeg.glb');
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftLowerLeg.glb');
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightLowerLeg.glb');
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftFoot.glb');
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightFoot.glb');
+    
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/Dresses/ipg_leggho_dress_01/ipg_leggho_dress_01__dress.glb');
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/Dresses/ipg_leggho_dress_01/ipg_leggho_dress_01__shortArm_L.glb');
+    this.load('http://localhost:3000/Characters/IPG/Wardrobe/Dresses/ipg_leggho_dress_01/ipg_leggho_dress_01__shortArm_R.glb');
+  }
+
+  load(url: string): void {
+    this.loader.load(
+      url,
       gltf => {
-        console.log(gltf);
-        this.scene.add(gltf.scene);
-        console.log(this.scene);
+        this.characterGroup.add(gltf.scene);
       },
       xhr => {
         console.log((xhr.loaded / xhr.total * 100) + '% loaded');
       },
       error => {
-        console.log('error loading model');
+        console.error(error);
       }
     );
   }

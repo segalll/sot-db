@@ -1,121 +1,105 @@
 export interface Item {
-    id: number,
-    name: string
+    name: string,
+    path: string
 }
 
-export const player = [
+export const player: Item[] = [
     {
-        id: 1,
-        name: "Player Cosmetic 1"
+        name: "Player Cosmetic 1",
+        path: ""
     },
     {
-        id: 2,
-        name: "Player Cosmetic 2"
+        name: "Player Cosmetic 2",
+        path: ""
     },
     {
-        id: 3,
-        name: "Player Cosmetic 3"
+        name: "Player Cosmetic 3",
+        path: ""
     },
     {
-        id: 4,
-        name: "Player Cosmetic 4"
+        name: "Player Cosmetic 4",
+        path: ""
     },
     {
-        id: 5,
-        name: "Player Cosmetic 5"
+        name: "Player Cosmetic 5",
+        path: ""
     },
     {
-        id: 6,
-        name: "Player Cosmetic 6"
+        name: "Player Cosmetic 6",
+        path: ""
     },
     {
-        id: 7,
-        name: "Player Cosmetic 7"
+        name: "Player Cosmetic 7",
+        path: ""
     },
     {
-        id: 8,
-        name: "Player Cosmetic 8"
+        name: "Player Cosmetic 8",
+        path: ""
     },
     {
-        id: 9,
-        name: "Player Cosmetic 9"
-    },
-]
+        name: "Player Cosmetic 9",
+        path: ""
+    }
+];
 
-export const weapon = [
+export const weapon: Item[] = [
     {
-        id: 1,
-        name: "Weapon Cosmetic 1"
+        name: "yep",
+        path: ""
     },
     {
-        id: 2,
-        name: "Weapon Cosmetic 2"
+        name: "this",
+        path: ""
     },
     {
-        id: 3,
-        name: "Weapon Cosmetic 3"
+        name: "is",
+        path: ""
     },
     {
-        id: 4,
-        name: "Weapon Cosmetic 4"
+        name: "a",
+        path: ""
     },
     {
-        id: 5,
-        name: "Weapon Cosmetic 5"
+        name: "test",
+        path: ""
     },
-    {
-        id: 6,
-        name: "Weapon Cosmetic 6"
-    },
-    {
-        id: 7,
-        name: "Weapon Cosmetic 7"
-    },
-    {
-        id: 8,
-        name: "Weapon Cosmetic 8"
-    },
-    {
-        id: 9,
-        name: "Weapon Cosmetic 9"
-    },
-]
+];
 
-export const ship = [
+export const ship: Item[] = [
     {
-        id: 1,
-        name: "Ship Cosmetic 1"
+        name: "Ship Cosmetic 1",
+        path: ""
     },
     {
-        id: 2,
-        name: "Ship Cosmetic 2"
+        name: "Ship Cosmetic 2",
+        path: ""
     },
     {
-        id: 3,
-        name: "Ship Cosmetic 3"
+        name: "Ship Cosmetic 3",
+        path: ""
     },
     {
-        id: 4,
-        name: "Ship Cosmetic 4"
+        name: "Ship Cosmetic 4",
+        path: ""
     },
     {
-        id: 5,
-        name: "Ship Cosmetic 5"
+        name: "Ship Cosmetic 5",
+        path: ""
     },
     {
-        id: 6,
-        name: "Ship Cosmetic 6"
+        name: "Ship Cosmetic 6",
+        path: ""
     },
     {
-        id: 7,
-        name: "Ship Cosmetic 7"
+        name: "Ship Cosmetic 7",
+        path: ""
     },
     {
-        id: 8,
-        name: "Ship Cosmetic 8"
+        name: "Ship Cosmetic 8",
+        path: ""
     },
     {
-        id: 9,
-        name: "Ship Cosmetic 9"
-    },
-]
+        name: "Ship Cosmetic 9",
+        path: ""
+    }
+];
