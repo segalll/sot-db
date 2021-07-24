@@ -11,7 +11,7 @@ class Renderer {
     this.camera.position.set(0, 0, 2.5);
 
     this.renderer = new THREE.WebGLRenderer({
-      alpha: false,
+      alpha: true,
     });
     this.renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(this.renderer.domElement);
@@ -23,7 +23,7 @@ class Renderer {
     this.scene.add(ambientLight);
 
     const directLight = new THREE.DirectionalLight(0xffffff);
-    directLight.position.set(-5, 5, 5);
+    directLight.position.set(0, 5, 2.5);
     directLight.lookAt(0, 0, 0);
     this.scene.add(directLight);
 
@@ -72,27 +72,13 @@ class Renderer {
     };
 
     load("/sot-assets/Characters/IPG/Wardrobe/_Skin/skin_Face_Template__skinHead.glb");
-    load("/sot-assets/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinJacketUpperBib.glb");
-    load("/sot-assets/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinJacketSquareBibTucked.glb");
     load("/sot-assets/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinTorso.glb");
-    load("/sot-assets/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftUpperArm.glb");
-    load("/sot-assets/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightUpperArm.glb");
-    load("/sot-assets/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftMidArm.glb");
-    load("/sot-assets/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightMidArm.glb");
-    load("/sot-assets/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftLowerArm.glb");
     load("/sot-assets/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightLowerArm.glb");
     load("/sot-assets/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftHand.glb");
     load("/sot-assets/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightHand.glb");
-    load("/sot-assets/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftMidLeg.glb");
-    load("/sot-assets/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightMidLeg.glb");
-    load("/sot-assets/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftLowerLeg.glb");
-    load("/sot-assets/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightLowerLeg.glb");
-    load("/sot-assets/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinLeftFoot.glb");
-    load("/sot-assets/Characters/IPG/Wardrobe/_Skin/skin_Meshes_Template__skinRightFoot.glb");
 
-    load("/sot-assets/Characters/IPG/Wardrobe/Dresses/ipg_leggho_dress_01/ipg_leggho_dress_01__dress.glb");
-    load("/sot-assets/Characters/IPG/Wardrobe/Dresses/ipg_leggho_dress_01/ipg_leggho_dress_01__shortArm_L.glb");
-    load("/sot-assets/Characters/IPG/Wardrobe/Dresses/ipg_leggho_dress_01/ipg_leggho_dress_01__shortArm_R.glb");
+    load("/sot-assets/Characters/IPG/Wardrobe/Jackets/ipg_legcol_jacket_01/ipg_legcol_jacket_01__longArm_L.glb");
+    load("/sot-assets/Characters/IPG/Wardrobe/Jackets/ipg_legcol_jacket_01/ipg_legcol_jacket_01__shortArm_R.glb");
   }
 }
 
