@@ -1,2 +1,3 @@
-sot-assets
-.vscode
+sot-assets/
+.vscode/
+node_modules/
